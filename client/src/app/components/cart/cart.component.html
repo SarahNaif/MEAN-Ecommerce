@@ -1,0 +1,32 @@
+<div *ngIf="cart.length" class="flex items-end lg:flex-row flex-col justify-center mb-7 " id="cart">
+      <div class="lg:w-1/2 md:w-8/12 w-full lg:px-8 lg:py-14 md:px-6 px-4 md:py-8 py-4 bg-white  overflow-x-hidden lg:h-screen h-auto" id="scroll">
+        <a routerLink="/" class="flex items-center text-gray-500 hover:text-gray-600 dark:text-white cursor-pointer" >
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left text-black" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <polyline points="15 6 9 12 15 18" />
+          </svg>
+          <p class="text-sm pl-2 leading-none text-gray-700 ">Back</p>
+        </a>
+        <p class="lg:text-4xl text-3xl font-black leading-10 text-gray-800  pt-3">Cart</p>
+
+     <app-cart-item *ngFor="let item of cart" [cart]="cart" [item]="item"  (change)="getTotal(cart)"></app-cart-item>
+
+      </div>
+
+      <div class="lg:w-96 md:w-8/12 w-full bg-gray-900 h-auto ">
+
+    <app-form  [totalPrice]="getTotal(cart)"></app-form>
+
+      </div>
+
+    </div>
+
+
+
+      <div *ngIf="!cart.length" class="empty-cart-message flex  justify-center">
+          Cart is Empty! try to &nbsp; <a routerLink="/"> add product to cart</a>.
+      </div>
+
+
+
+

@@ -1,0 +1,10 @@
+<div>
+  <div class="mx-auto container py-8">
+    <div class="flex flex-wrap items-center justify-between gap-3">
+      <app-product-item
+        *ngFor="let pro of products"
+        [product]="pro"
+      ></app-product-item>
+    </div>
+  </div>
+</div>

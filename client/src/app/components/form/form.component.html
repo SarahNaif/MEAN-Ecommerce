@@ -1,0 +1,82 @@
+<div class="flex flex-col lg:h-screen h-auto lg:px-8 md:px-7 px-4 lg:py-20 md:py-10 py-6 justify-between overflow-y-auto">
+  <form  [formGroup]="createForm" (ngSubmit)="onSubmit()">
+  <div>
+    <p class="lg:text-4xl mb-3 text-3xl font-black leading-9 text-gray-800 dark:text-white">Checkout</p>
+
+
+
+  <div class="m-0">
+          <input
+              type="text"
+              formControlName="firstName"
+              class="block border border-grey-light w-full p-3 rounded mb-4 mt-14"
+              name="fullname"
+              placeholder="Full Name"
+              required [ngClass]="{
+                'border border-red-500 bg-red-50 focus:ring-red-500 focus:border-red-500 outline outline-offset-1 outline-red-500':  firstName?.touched && firstName?.errors
+              }"
+              />
+              <div *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)"
+              class=" flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+
+                <div *ngIf="firstName?.errors?.['required']" class="">
+                    First Name is required.
+                </div>
+
+                <div *ngIf="firstName?.errors?.['minlength']">
+                    Name must be at least 4 characters long.
+                </div>
+
+            </div>
+
+
+    </div>
+
+    <div>
+
+          <input
+              type="text"
+              class="block border border-grey-light w-full p-3 rounded my-3"
+              name="address"
+              formControlName="address"
+              placeholder="Address"
+              [ngClass]="{ 'border border-red-500 bg-red-50 focus:ring-red-500 focus:border-red-500 outline outline-offset-1 outline-red-500':  address?.touched && address?.errors }"
+              />
+              <div *ngIf="address?.invalid && (address?.dirty || address?.touched)" class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+                <div *ngIf="address?.errors?.['required']">Address is required.</div>
+            </div>
+    </div>
+
+<div>
+          <input
+              type="number"
+              class="block border border-grey-light w-full p-3 rounded my-3 "
+              name="creditCard"
+              formControlName="creditCard"
+              maxlength="16"
+              placeholder="Credit Card Number"
+              [ngClass]="{'border border-red-500 bg-red-50 focus:ring-red-500 focus:border-red-500 outline outline-offset-1 outline-red-500':  creditCard?.touched && creditCard?.errors}"
+
+              />
+
+              <div *ngIf="creditCard?.invalid && (creditCard?.dirty || creditCard?.touched)"
+              class=" flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+                    <div *ngIf="creditCard?.errors?.['required']">
+                        Credit Card is required.
+                    </div>
+                </div>
+   </div>
+
+
+      </div>
+
+
+  <div>
+    <div class="flex items-center pb-6 justify-between lg:pt-5 pt-20 border-t-2 border-gray-400  ">
+      <p class="text-2xl leading-normal text-gray-800 dark:text-white">Total</p>
+      <p class="text-2xl font-bold leading-normal text-right text-gray-800 dark:text-white">{{ totalPrice | currency: "USD" }}</p>
+    </div>
+    <button [disabled]="!createForm.valid"  type="submit"  class="text-base leading-none w-full py-5 bg-gray-800 border-gray-800 border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white  disabled:opacity-100 disabled:bg-gray-600">Checkout</button>
+  </div>
+</form>
+</div>
