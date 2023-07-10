@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS products;
+CREATE TABLE products (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    des VARCHAR(255) NOT NULL,
+    image VARCHAR(255) NOT NULL,
+    price INTEGER NOT NULL,
+    category VARCHAR(64) NOT NULL);
