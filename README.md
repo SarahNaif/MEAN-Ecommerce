@@ -6,6 +6,22 @@ A full-stack e-commerce project built with Postgres, Express, Angular and Node.
 
 [soon]()
 
+## Tech
+
+Package installation: 
+
+- [TypeScript]()
+- [Angular]()
+- [Node](https://nodejs.org/en/)
+- [Express](http://expressjs.com/)
+- [Multer]()
+- [Bcrypt]()
+- [Postgres](https://www.postgresql.org/)
+- [Tailwind-CSS](https://tailwindcss.com/)
+- [db-migrate]()
+- [jsonwebtoken]()
+- [jasmine]()
+
 ## Screenshots
 ![Homepage Screen]()
 
@@ -95,21 +111,7 @@ TOKEN_SECRET=your-secret-password
 ```
 
 
-## Tech
 
-Package installation: 
-
-- [TypeScript]()
-- [Angular]()
-- [Node](https://nodejs.org/en/)
-- [Express](http://expressjs.com/)
-- [Multer]()
-- [Bcrypt]()
-- [Postgres](https://www.postgresql.org/)
-- [Tailwind-CSS](https://tailwindcss.com/)
-- [db-migrate]()
-- [jsonwebtoken]()
-- [jasmine]()
 
 
 
