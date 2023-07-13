@@ -1,7 +1,6 @@
 # Storefront Backend Project
 
-This project is part of udacity full stack javascript developer scolarship ,
-its aim to build restful api with postgres and express
+
 
 ## Project Structure
 
@@ -119,5 +118,5 @@ After start up, the server will start on port `4000` and the database on port `5
 ### Resources:
 
 
-https://stackoverflow.com/questions/70864177/how-can-i-pass-my-bearer-token-to-next-next-tests
+
 

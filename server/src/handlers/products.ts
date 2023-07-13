@@ -58,7 +58,7 @@ export const category = async (req: Request, res: Response) => {
 };
 
 /**
- * @description POST Product By Category  .
+ * @description POST Product   .
  * @
  */
 

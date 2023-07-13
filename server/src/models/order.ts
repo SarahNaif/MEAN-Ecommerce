@@ -82,7 +82,7 @@ export class OrderStore {
       }
       const sql = `UPDATE orders SET status = 'completed' WHERE id = $1 RETURNING *`;
       const result = await connection.query(sql, [orderId]);
-console.log(result.rows[0].id)
+
       const products = await connection.query(
         `SELECT product_id, quantity FROM orders_products WHERE order_id = $1`,
         [result.rows[0].id]
@@ -109,20 +109,24 @@ console.log(result.rows[0].id)
       const sql1 = `SELECT status, user_id FROM orders WHERE id = $1`;
       const result1 = await connection.query(sql1, [orderId]);
       const useriddb = parseInt(result1.rows[0].user_id)
- 
-      if (useriddb  !== userId ) {
+      if (useriddb !== userId) {
         throw new Error("You are not the owner of this order");
       }
 
-
-
-      const sql = "DELETE FROM orders WHERE id=($1) RETURNING *;";
+      let sql = `DELETE from orders_products WHERE order_id =($1)`;
+      let result3 = await connection.query(sql, [orderId]);
+      
+      sql = `DELETE FROM orders WHERE id=($1)`;
 
       const result = await connection.query(sql, [orderId]);
-
       connection.release();
 
-      return result.rows[0];
+      const order = {
+        ...result.rows[0],
+        orderProducts: result3.rows,
+      };
+
+      return order
     } catch (err) {
       throw new Error(`Could not delete order ${orderId}. Error: ${err}`);
     }

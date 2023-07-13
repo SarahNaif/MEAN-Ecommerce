@@ -22,6 +22,7 @@ These are the notes from a meeting with the frontend developer that describe wha
 - firstname VARCHAR (100) NOT NULL,
 - lastname VARCHAR (100) NOT NULL,
 - password VARCHAR(255) NOT NULL
+- admin BOOLEAN DEFAULT FALSE
 
 #### Orders
 
@@ -42,15 +43,15 @@ These are the notes from a meeting with the frontend developer that describe wha
 
 `/users [GET]` shows all users [token required]
 
-`/users/:id [GET]` shows a user using their id [token required]
+`/users/:id [GET]` shows a user using their id [token required] Profile
 
 `/signin [POST]` Authenticate a user (email, password)
 
 `/register [POST]` creates a new user 
 
-`/users/:id [PUT]` updates a user using their id [token required]
+`/users/:id [PUT]` updates a user using their id [token required] Update Profile
 
-`/users/:id [DELETE]` deletes a user using their id [token required]
+`/users/:id [DELETE]` deletes a user using their id [token required] Delete User Account
 
 #### Products Routes
 
@@ -60,11 +61,11 @@ These are the notes from a meeting with the frontend developer that describe wha
 
 `/products/category [GET]` shows a product using its category
 
-`/products [POST]` creates a new prouct [token required]
+`/products [POST]` creates a new prouct [token required], [admin required]
 
-`/products/:id [PUT]` updates a product using its id [token required]
+`/products/:id [PUT]` updates a product using its id [token required], [admin required]
 
-`/products/:id [DELETE]` deletes a product using its id [token required]
+`/products/:id [DELETE]` deletes a product using its id [token required], [admin required]
 
 #### Orders Routes
 
@@ -81,6 +82,3 @@ These are the notes from a meeting with the frontend developer that describe wha
 `/orders/:id/products [POST]` creates a cart item in the order_products table using the order id [token required]
 
 `/orders/:id/users [GET]` shows all orders by a specific user using their id [token required]
-
-
-

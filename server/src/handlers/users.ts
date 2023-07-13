@@ -13,15 +13,15 @@ const SECRET: Secret = process.env.TOKEN_SECRET as Secret;
 /**
  * @description Get User By ID  .
  * @param user.id 
- * @
+ * @Profile
  */
 
 
 export const show = async (req: Request, res: Response) => {
   try {
 
-    const user = await userModel.show(req.params.id);
-    res.status(200).json({msg: `Successfully Show a User with ID : ${req.params.id}  `, user });
+    const user = await userModel.show(req.userId);
+    res.status(200).json({msg: `Successfully Show a User with ID : ${req.userId}  `, user });
   } catch (error) {
     res.status(500);
     res.json(error);
@@ -87,7 +87,7 @@ export const create = async (req: Request, res: Response) => {
 /**
  * @description Update - Put User ( firstname ,lastname ,email ,password ) +  user.id .
  * @param user.id 
- * @
+ * @Profile
  */
 
 export const update = async (req: Request, res: Response) => {
@@ -99,7 +99,7 @@ export const update = async (req: Request, res: Response) => {
   };
   try {
 
-    const newUser = await userModel.update(user, req.params.id);
+    const newUser = await userModel.update(user, req.userId);
     res.status(200).json({
       msg: `user ${newUser.firstname} password has been updated successfuly`,
       _id: newUser.id,
@@ -123,7 +123,7 @@ export const update = async (req: Request, res: Response) => {
 
 export const destroy = async (req: Request, res: Response) => {
   try {
-    const newUser = await userModel.delete(req.params.id);
+    const newUser = await userModel.delete(req.userId);
     return res.status(200).json({
       msg: `User with ID ${newUser.id} has been Deleated Successfully`,});
   } catch (error) {
