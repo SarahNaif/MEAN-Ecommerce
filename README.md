@@ -1,4 +1,4 @@
-# PEAN-Ecommerce
+# PEN-Ecommerce
 
 A full-stack e-commerce project built with Postgres, Express, and Node.
 
@@ -11,7 +11,6 @@ A full-stack e-commerce project built with Postgres, Express, and Node.
 Package installation: 
 
 - [TypeScript]()
-- [Angular]()
 - [Node](https://nodejs.org/en/)
 - [Express](http://expressjs.com/)
 - [Multer]()
@@ -110,7 +109,9 @@ SALT_ROUND
 TOKEN_SECRET=your-secret-password
 ```
 
+#### TO DO:
 
+- FrontEnd (soon)
 
 
 
