@@ -1,6 +1,6 @@
 # PEAN-Ecommerce
 
-A full-stack e-commerce project built with Postgres, Express, Angular and Node.
+A full-stack e-commerce project built with Postgres, Express, and Node.
 
 ## Demo
 
